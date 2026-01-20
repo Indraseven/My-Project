@@ -1,14 +1,11 @@
-import { api, bucket } from "@nitric/sdk";
+const express = require('express');
+const app = express();
 
-const main = api("main");
-const notes = bucket("notes").allow("read", "write");
-
-main.get("/notes/:title", async ({req, res}) => {
-  const { title } = req.params;
-  res.body = await notes.file(title).read();
+app.get('/', (req, res) => {
+  res.send('API Express berhasil berjalan di Termux!');
 });
 
-main.post("/notes/:title", async ({req, res}) => {
-  const { title } = req.params;
-  await notes.file(title).write(req.text());
+app.listen(3000, () => {
+  console.log('Server nyala di http://localhost:3000');
 });
+

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@nitric/sdk": "^1.4.2",
+    "express": "^5.2.1"
+  }
+}
