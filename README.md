@@ -1,12 +1,10 @@
-# My Project: Simple Notes API
-API sederhana untuk menyimpan dan membaca catatan teks, dibangun dengan **Node.js** dan **Express**.
+# 📝 Simple Note Manager API
+Dibuat dengan Node.js & Express di Termux.
 
-## Cara Menjalankan
-1. Pastikan Node.js terinstal.
-2. Instal dependensi: `npm install`
-3. Jalankan server: `node api.js`
-
-## Endpoint
-- **POST** `/notes/:title` - Menyimpan catatan (kirim teks di body).
-- **GET** `/notes/:title` - Membaca isi catatan.
+## Cara Pakai
+- **Lihat Semua**: `GET /notes`
+- **Baca Isi**: `GET /notes/judul`
+- **Simpan**: `POST /notes/judul` (Kirim teks di body)
+- **Edit**: `PUT /notes/judul`
+- **Hapus**: `DELETE /notes/judul`
 
