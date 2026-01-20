@@ -45,3 +45,29 @@ app.listen(port, () => {
     console.log(`Server aktif di http://localhost:${port}`);
 });
 
+// 5. EDIT/UPDATE ISI CATATAN (PUT /notes/:title)
+app.put('/notes/:title', (req, res) => {
+    const fileName = `${req.params.title}.txt`;
+    const newContent = req.body || "";
+
+    if (fs.existsSync(fileName)) {
+        if (!newContent.trim()) {
+            return res.status(400).send("Isi baru tidak boleh kosong!");
+        }
+        fs.writeFileSync(fileName, newContent);
+        res.send(`Catatan '${req.params.title}' berhasil diperbarui!`);
+    } else {
+        res.status(404).send('Catatan tidak ditemukan, gunakan POST untuk membuat baru.');
+    }
+});
+
+// 6. FITUR DOWNLOAD
+app.get('/download/:title', (req, res) => {
+    const fileName = `${req.params.title}.txt`;
+    if (fs.existsSync(fileName)) {
+        res.download(fileName); 
+    } else {
+        res.status(404).send('File tidak ditemukan');
+    }
+});
+
