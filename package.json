@@ -1,6 +1,14 @@
 {
+  "name": "my-project",
+  "version": "1.0.0",
+  "description": "API Catatan Sederhana",
+  "main": "api.js",
+  "scripts": {
+    "start": "node api.js"
+  },
   "dependencies": {
     "@nitric/sdk": "^1.4.2",
     "express": "^5.2.1"
   }
 }
+

@@ -13,4 +13,4 @@
 pkg/
 src/
 node_modules/
-
+.env
